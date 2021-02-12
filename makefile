@@ -10,12 +10,7 @@ lab3.o: lab3.cpp
 clean:
 	rm -f *.o
 	rm -f main
-
-commit:
-	git add *
-	git commit * -m pushing it to the lim
-	git push origin main
-
+	
 pull:
 	git pull
 	make

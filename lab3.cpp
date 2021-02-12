@@ -5,7 +5,7 @@ COSC 320
 Lab3
 
 Goals: 
-- Develop familiarity with a Heap data structure using arrays
+- Develop a Heap data structure using arrays
 */
 
 #include <iostream>
@@ -28,8 +28,9 @@ struct Heap {
   // otherwise it would only return a copy of the indexed element
   int& operator[](int i){
         // good idea to also check that 1 <= i <= length!
-        return arr[i-1]; // so A[1] is the first and A[n] is the last }
-
+        if(i> 1 && i > length){
+            return arr[i-1]; // so A[1] is the first and A[n] is the last }
+        }
     }
 
 
@@ -46,8 +47,16 @@ void  BuildMaxHeap(){
 void HeapSort(){
 
 }
+
+
+// i specifies a node, depth specifies the depth of the "tree"
+void print(int * arr, int i, int depth){ 
+
+}
+
+
 int main(){
-    cout<<"hello world"<<endl;
+    int arr= new int [10];
 }
 
 
