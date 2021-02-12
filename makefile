@@ -8,3 +8,8 @@ lab3.o: lab3.cpp
 
 clean:
 	rm -f *.o
+
+commit:
+	git add *
+	git commit * -m pushing
+	git push origin main
