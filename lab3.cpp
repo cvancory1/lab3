@@ -57,6 +57,8 @@ void print(int * arr, int i, int depth){
 
 int main(){
     int arr= new int [10];
+    //hi 
+    int a;
 }
 
 
