@@ -109,78 +109,53 @@ int printRightChild(Heap A, int lable){
 }
 
 // i specifies a node which will print looking like the root, depth specifies the depth of the "sub -tree"
-void print(Heap A, int i, int depth){
-    if(i > A.length){
-        return;
-        printNode(A,i);
+
+
+
+int * findChildren(Heap A , int i , int * childArr, int j){
+
+    if(2*i< A.length || 2*i+1 <A.length){
+        return childArr;
+    }else{
+        childArr[j++]= A.arr[2*i] ;
+        childArr[j++]= A.arr[2*i+1] ;
+
+        findChildren(A,2*i;childArr ;j);
+
     }
 
+}
+void print(Heap A, int i, int depth){
+    // if(i > A.length){
+    //     return;
+    //     printNode(A,i);
+    // }
+
     
 
-    print(A, 2*i, depth);
+    // print(A, 2*i, depth);
 
-    print(A, 2*i+1, depth);
+    // print(A, 2*i+1, depth);
     
 
-    //print left child
-    printLeftChild(A, i);
+    // //print left child
+    // printLeftChild(A, i);
 
-    //print right child
-    printRightChild(A, i);
+    // //print right child
+    // printRightChild(A, i);
 
-    //print node
-    //printNode(A, i);
+    // //print node
+    // //printNode(A, i);
+
+    int * childrenArr= new int [A.length/2];
+    childrenArr= findChildren(Heap A, i , childrenArr);
+
+
+
 }
 
 
 
-//    for(i; i<=A.length ;i=2*i){
-        // cout<< A.arr[(2*i)-1]<<"  "<<A.arr[(2*i)]<<endl;// left and right child
-
-   
-    //cout<<A.length<<endl;
-    //int mid = A.length;
-
-
-    // if(i > A.length){
-    //      return;// print star 
-    // }
-
-      
-
-    // if(depth>0){
-    //     cout<<A.arr[i-1]<<endl; //root
-    // }
-    
-    // cout<< A.arr[(2*i)-1]<<"  "<<A.arr[(2*i)]<<endl;// left and right child
-    // cout<<endl;
-
-    //print(A,2*i,depth);
-    // print(A,2*i,depth--);// print left child
-    // print(A,(2*i)+1,depth--); //print right child
-
-      
-
-
-//    if(depth==0){
-//        return;
-
-
-//    }else if(depth>1){
-//         for(int tab = depth-1; tab >0 ;tab --){
-//             cout<< "    ";
-//         }
-//         cout<<A.arr[i-1]<<endl;
-
-//         for(int tab = depth-1; tab >0 ;tab --){
-//             cout<< "  ";
-//         }
-//         cout<<"/   \\"<<endl;
-
-//         cout<< A.arr[(2*i)-1]<<"      "<<A.arr[(2*i)]<<endl;
-
-//         print(A,i--,depth--);
-//    }
    
 
 void swap(int & num1, int& num2){
