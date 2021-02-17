@@ -69,20 +69,25 @@ void swap(int & num1, int& num2){
 
 
 
-int * print(Heap A, int i, int depth, int * arr){
+int* print(Heap A, int i, int depth, int arr[] ){
     static int index=i;
     int numNodes=pow(2, depth);
+    int * arr3;
+    int * arr4;
 
     // if(2*i+1 > A.length && 2*i > A.length || i>= numNodes-1){
 
     //  if(2*i+1 > A.length && 2*i > A.length ){
             //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
 
-         if(i>=numNodes){
-            //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
-            return arr; 
-            
-         }
+    if(i>=numNodes){
+    //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
+        delete arr3;
+        delete arr4;
+        return arr; 
+    
+    
+    }
 
     // }
     // cout<<"     here  ";
@@ -93,24 +98,24 @@ int * print(Heap A, int i, int depth, int * arr){
     arr[2*i -1]=A.arr[(2*i)-1];
     arr[(2*i)]=A.arr[(2*i)];
 
-    print(A,(2*i)+1,depth, arr); //print right child
-    print(A,2*i,depth, arr);// print left child
+    arr3=  print(A,(2*i)+1,depth, arr); //print right child
+    arr4 = print(A,2*i,depth, arr);// print left child
 
     
 }
 
 
 void printHeap(Heap A, int i, int depth){
-    int * arr= new int [A.length];
+    int arr[A.length];
     for(int j=0;j< A.length ;j++){
         arr[j]=-9877;
         //cout<<arr[j];
 
     }
     int j=0;
-    cout<< ""<<A.arr[i-1]<<endl;
+    cout<< "\n"<<A.arr[i-1]<<endl;
 
-    print(A,i,depth--,arr); // calls the above function to fill the array to be printed
+    //print(A,i,depth--,arr); // calls the above function to fill the array to be printed
 
     int power=1;
     int nodesPrinted=0;
@@ -280,11 +285,14 @@ int main(){
     // cout<<"heap1="<<heap1.length<<endl;
     printArr(heap1);
     printHeap(heap1, 1, 4);
+    printHeap(heap1, 2, 3);
+    printHeap(heap1, 5, 4);
+
     //  MaxHeapify(heap1,heap1.length);
    
 
     //  printHeap(heap1, 1, 3);
-    // cout<<"\n"<<endl;
+     cout<<"\n"<<endl;
 
      printArr(heap1);
 

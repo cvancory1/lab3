@@ -101,6 +101,8 @@ int * print(Heap A, int i, int depth, int * arr){
 
 
 void printHeap(Heap A, int i, int depth){
+
+    // CHANGED 
     int arr  [A.length];
     for(int j=0;j< A.length ;j++){
         arr[j]=-9877;
