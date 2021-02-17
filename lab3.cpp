@@ -72,6 +72,7 @@ void swap(int & num1, int& num2){
 int * print(Heap A, int i, int depth, int * arr){
     static int index=i;
     int numNodes=pow(2, depth);
+
     // if(2*i+1 > A.length && 2*i > A.length || i>= numNodes-1){
 
     //  if(2*i+1 > A.length && 2*i > A.length ){
@@ -100,16 +101,16 @@ int * print(Heap A, int i, int depth, int * arr){
 
 
 void printHeap(Heap A, int i, int depth){
-    // int * arr= new int [A.length];
-    // for(int j=0;j< A.length ;j++){
-    //     arr[j]=-9877;
-    //     //cout<<arr[j];
+    int * arr= new int [A.length];
+    for(int j=0;j< A.length ;j++){
+        arr[j]=-9877;
+        //cout<<arr[j];
 
-    // }
-    // int j=0;
+    }
+    int j=0;
     cout<< ""<<A.arr[i-1]<<endl;
 
-    print(A,i,depth--,A.arr); // calls the above function to fill the array to be printed
+    print(A,i,depth--,arr); // calls the above function to fill the array to be printed
 
     int power=1;
     int nodesPrinted=0;
