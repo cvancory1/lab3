@@ -102,27 +102,25 @@ int * print(Heap A, int i, int depth, int * arr){
 void printHeap(Heap A, int i, int depth){
     int * arr= new int [A.length];
     for(int j=0;j< A.length ;j++){
-        arr[j]=-9;
+        arr[j]=-9877;
         //cout<<arr[j];
 
     }
     int j=0;
     cout<< ""<<A.arr[i-1]<<endl;
-    // cout<<"/ \\"<<endl;
 
-    print(A,i,depth--,arr);
-    //cout<<"Here"<<endl;
+    print(A,i,depth--,A.arr); // calls the above function to fill the array to be printed
 
     int power=1;
     int nodesPrinted=0;
     int numNodes =2;
     //cout<<"numNodes="<<numNodes<<endl;
 
-    for(int j=0;j< A.length ;j++){
+    for(int j=1;j< A.heap_size;j++){
         //cout<<arr[j]<<endl;
 
-        if(arr[j] >= 0){
-            cout<<arr[j]<<" ";
+        if(A.arr[j] >= 0){
+            cout<<A.arr[j]<<" ";
             nodesPrinted++;
 
             if(nodesPrinted % numNodes==0){
@@ -139,6 +137,7 @@ void printHeap(Heap A, int i, int depth){
 
         }
     }    
+    delete [] arr;
     cout<<endl;
 }
 
@@ -262,31 +261,31 @@ int main(){
      int temp=1;
      int temp2=0;
 
-    //Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 4};
+    Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 10};
     //Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
 
-    Heap heap1;
-    heap1.arr=new int [10];
-    heap1.heap_size=10;
-    heap1.length=10;
+    // Heap heap1;
+    // heap1.arr=new int [10];
+    // heap1.heap_size=10;
+    // heap1.length=10;
 
-    for(int i=0; i< heap1.length ;i++){
-        heap1.arr[i]=i;
+    // for(int i=0; i< heap1.length ;i++){
+    //     heap1.arr[i]=i;
         
-    }
+    // }
     
    
 
     // cout<<"heap1="<<heap1.length<<endl;
 
-    //printHeap(heap1, 1, 4);
-     MaxHeapify(heap1,heap1.length);
+    printHeap(heap1, 1, 4);
+    //  MaxHeapify(heap1,heap1.length);
    
 
-     printHeap(heap1, 1, 3);
-    cout<<"\n"<<endl;
+    //  printHeap(heap1, 1, 3);
+    // cout<<"\n"<<endl;
 
-     printArr(heap1);
+    //  printArr(heap1);
 
      //HeapSort(heap1);
     // cout<<"\n"<<endl;
