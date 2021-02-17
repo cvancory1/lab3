@@ -12,7 +12,7 @@ clean:
 	rm -f main
 
 commit:
-	git add *
+	git add lab3.cpp
 	git commit * -m pushing
 	git push origin main
 	
