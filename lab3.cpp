@@ -204,15 +204,15 @@ void MaxHeapify(Heap A, int i){
 * from the elements using Θ(n)time.
 */
 void  BuildMaxHeap(Heap A ){
-puts("Enter buildmaxheap");    
+    puts("Enter buildmaxheap");    
 
     A.heap_size= A.length; // the whole array will be a heap when we’re done
     for( int i= A.length/2; i>0 ; i--){
         MaxHeapify(A,i);
     }
 
-puts("exit buildmaxheap");    
-printHeap(A,1,4);
+    puts("exit buildmaxheap");    
+    printHeap(A,1,4);
 
 }
 
@@ -240,7 +240,7 @@ void HeapSort(Heap A ){
         MaxHeapify(A,1);
         printArr(A);
 
-    // TODO:check if this needs to be reindexed
+
 
     }
 
@@ -256,21 +256,37 @@ void HeapSort(Heap A ){
 
 
 int main(){
+
+    // maxheapfy -> A , total length
+    // 
      int temp=1;
      int temp2=0;
 
     //Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 4};
-    Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
+    //Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
+
+    Heap heap1;
+    heap1.arr=new int [10];
+    heap1.heap_size=10;
+    heap1.length=10;
+
+    for(int i=0; i< heap1.length ;i++){
+        heap1.arr[i]=i;
+        
+    }
+    
+   
 
     // cout<<"heap1="<<heap1.length<<endl;
 
     //printHeap(heap1, 1, 4);
-    // BuildMaxHeap(heap1);
+     MaxHeapify(heap1,heap1.length);
    
 
-    // printHeap(heap1, 1, 3);
+     printHeap(heap1, 1, 3);
+    cout<<"\n"<<endl;
 
-    // printArr(heap1);
+     printArr(heap1);
 
      //HeapSort(heap1);
     // cout<<"\n"<<endl;
@@ -278,14 +294,7 @@ int main(){
     // printHeap(heap1, 1, 3);
 
      //cout<<"Back in main"<<endl;
-     printArr(heap1);
-
-
-
-
-
-
-
+     //printArr(heap1);
 
 
 
