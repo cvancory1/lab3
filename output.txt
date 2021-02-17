@@ -1,0 +1,313 @@
+heaparray 20
+heaparray 25
+heaparray 6
+heaparray 12
+heaparray 15
+heaparray 4
+heaparray 16
+heaparray 0
+Enter HEAPSORT
+Enter buildmaxheap
+
+Enter Maxheapify
+
+6
+
+
+
+16
+
+
+Enter Maxheapify
+
+6
+
+
+Enter Maxheapify
+
+25
+15 4 
+
+
+Enter Maxheapify
+
+20
+16 12 
+
+
+Enter Maxheapify
+
+10
+20 25 
+16 12 15 4 
+
+
+
+25
+20 10 
+16 12 15 4 
+
+
+Enter Maxheapify
+
+10
+15 4 
+
+
+
+15
+10 4 
+
+
+Enter Maxheapify
+
+10
+
+exit buildmaxheap
+25
+20 15 
+16 12 10 4 
+6 
+BuildMaxheap finish
+25
+20 15 
+16 12 10 4 
+6 
+ num1 = 25 num= 6
+
+Enter Maxheapify
+
+6
+20 15 
+16 12 10 4 
+
+
+
+20
+6 15 
+16 12 10 4 
+
+
+Enter Maxheapify
+
+6
+16 12 
+
+
+
+16
+6 12 
+
+
+Enter Maxheapify
+
+6
+
+20
+16
+15
+6
+12
+10
+4
+25
+ num1 = 20 num= 4
+
+Enter Maxheapify
+
+4
+16 15 
+6 12 10 20 
+
+
+
+16
+4 15 
+6 12 10 20 
+
+
+Enter Maxheapify
+
+4
+6 12 
+
+
+
+12
+6 4 
+
+
+Enter Maxheapify
+
+4
+
+16
+12
+15
+6
+4
+10
+20
+25
+ num1 = 16 num= 10
+
+Enter Maxheapify
+
+10
+12 15 
+6 4 16 20 
+
+
+
+15
+12 10 
+6 4 16 20 
+
+
+Enter Maxheapify
+
+10
+16 20 
+
+15
+12
+10
+6
+4
+16
+20
+25
+ num1 = 15 num= 4
+
+Enter Maxheapify
+
+4
+12 10 
+6 15 16 20 
+
+
+
+12
+4 10 
+6 15 16 20 
+
+
+Enter Maxheapify
+
+4
+6 15 
+
+
+
+6
+4 15 
+
+
+Enter Maxheapify
+
+4
+
+12
+6
+10
+4
+15
+16
+20
+25
+ num1 = 12 num= 4
+
+Enter Maxheapify
+
+4
+6 10 
+12 15 16 20 
+
+
+
+10
+6 4 
+12 15 16 20 
+
+
+Enter Maxheapify
+
+4
+16 20 
+
+10
+6
+4
+12
+15
+16
+20
+25
+ num1 = 10 num= 4
+
+Enter Maxheapify
+
+4
+6 10 
+12 15 16 20 
+
+
+
+6
+4 10 
+12 15 16 20 
+
+
+Enter Maxheapify
+
+4
+12 15 
+
+6
+4
+10
+12
+15
+16
+20
+25
+ num1 = 6 num= 4
+
+Enter Maxheapify
+
+4
+6 10 
+12 15 16 20 
+
+4
+6
+10
+12
+15
+16
+20
+25
+ num1 = 4 num= 4
+
+Enter Maxheapify
+
+4
+6 10 
+12 15 16 20 
+
+4
+6
+10
+12
+15
+16
+20
+25
+4
+6
+10
+12
+15
+16
+20
+25

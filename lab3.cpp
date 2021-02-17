@@ -15,7 +15,6 @@ Goals:
 #include <ctime>
 #include <cstdlib>
 #include<unistd.h>
-
 #include<cmath>
 
 
@@ -32,25 +31,37 @@ struct Heap {
   // give the struct an [] operator to pass through access to arr
   // we return an int reference so we can assign into the structure,
   // otherwise it would only return a copy of the indexed element
-  int& operator[](int i){
-        // good idea to also check that 1 <= i <= length!
-        if(i> 1 && i > length){
-            return arr[i-1]; // so A[1] is the first and A[n] is the last }
-        }
-    }
+
+
+//   int& operator[](int i){
+//         // good idea to also check that 1 <= i <= length!
+//         if(i> 1 && i < length){
+//             cout<<"HERE hi    ="<< i <<endl;
+
+//             return arr[i-1]; // so A[1] is the first and A[n] is the last }
+//         }
+//     }
 
 };
 
+
+void printArr(Heap A){
+    for(int i=0; i< A.length ;i++){
+        cout<<A.arr[i]<<endl;
+    }
+}
+
+
 void swap(int & num1, int& num2){
-    cout<<"ENTER SWAP \n\n\n";
-    cout<<" num1 = "<<num1<< " num= "<< num2<<endl;
+   // cout<<"ENTER SWAP \n\n\n";
+   // cout<<" num1 = "<<num1<< " num= "<< num2<<endl;
 
     int temp1=num1;
     int temp2=num2;
     num1= temp2;
     num2=temp1;
 
-    cout<<" num1 = "<<num1<< " num= "<< num2<<endl;
+   // cout<<" num1 = "<<num1<< " num= "<< num2<<endl;
 
 }
 
@@ -83,11 +94,9 @@ int * print(Heap A, int i, int depth, int * arr){
     print(A,2*i,depth, arr);// print left child
 
     
-
-   
-
-    
 }
+
+
 void printHeap(Heap A, int i, int depth){
     int * arr= new int [A.length];
     for(int j=0;j< A.length ;j++){
@@ -129,8 +138,6 @@ void printHeap(Heap A, int i, int depth){
         }
     }    
     cout<<endl;
-
-    
 }
 
 
@@ -144,12 +151,12 @@ void printHeap(Heap A, int i, int depth){
 
 
 void MaxHeapify(Heap A, int i){
-    sleep(1);
+   // sleep(1);
     int left= 2*i;
     int right = (2*i)+1;
     int largest;
 
-    cout<<"\nEnter Maxheapify"<<endl;
+    cout<<"\nEnter Maxheapify\n"<<endl;
 
     printHeap(A, i, 2);
 
@@ -159,17 +166,17 @@ void MaxHeapify(Heap A, int i){
     // Find the largest among node i and its children, and swap with i
     if(left <= A.heap_size && A.arr[left-1] > A.arr[i-1]){
         largest=left;
-        cout<<"first"<<endl;
+        //cout<<"first"<<endl;
 
     }else {
         largest=i;
-        cout<<"second"<<endl;
+        //cout<<"second"<<endl;
 
     }
     
     if(right <= A.heap_size && A.arr[right-1] > A.arr[largest-1] ){
         largest = right;
-        cout<<"third"<<endl;
+       // cout<<"third"<<endl;
 
     }
 
@@ -195,10 +202,16 @@ void MaxHeapify(Heap A, int i){
 * from the elements using Θ(n)time.
 */
 void  BuildMaxHeap(Heap A ){
+puts("Enter buildmaxheap");    
+
     A.heap_size= A.length; // the whole array will be a heap when we’re done
     for( int i= A.length/2; i>0 ; i--){
         MaxHeapify(A,i);
     }
+
+puts("exit buildmaxheap");    
+printHeap(A,1,4);
+
 }
 
 
@@ -208,15 +221,24 @@ void  BuildMaxHeap(Heap A ){
 */
 void HeapSort(Heap A ){
 // Make sure the array is a valid heap, where the largest element must be A[1]
-// CHECK 
+    puts("Enter HEAPSORT");    
     BuildMaxHeap(A);
-    for ( int i= A.length; i<=2 ; i){
+    puts("BuildMaxheap finish");    
+    //printArr(A);
+    printHeap(A,1 ,4);
+
+
+    for ( int i= A.length; i>=1 ; i--){
         // We know A[i] is the largest among A[1,...,i], so move it to the back of the heap and consider it removed from the heap
-        swap(A.arr[i], A.arr[i]);
+         cout<<" num1 = "<<A.arr[0]<< " num= "<< A.arr[i-1]<<endl;
+
+        swap(A.arr[0], A.arr[i-1]);
         A.heap_size--;
         // we moved one of the smaller elements to the root so now we have to Clean up
         MaxHeapify(A,1);
-        
+        printArr(A);
+
+    // TODO:check if this needs to be reindexed
 
     }
 
@@ -232,22 +254,37 @@ void HeapSort(Heap A ){
 
 
 int main(){
-     int temp=0;
+     int temp=1;
      int temp2=0;
 
     //Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 4};
-    Heap heap1= {new int[8]{10, 20,25,6,12,15, 4 ,16}, 8, 3};
+    Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
 
+    for(int i=1;i<=heap1.length; i++){
+         cout<<"heaparray "<<heap1.arr[i]<<endl;
+    }
+    // cout<<"heap1="<<heap1.length<<endl;
 
-    cout<<"heap1="<<heap1.length<<endl;
-
-    printHeap(heap1, 1, 4);
-    BuildMaxHeap(heap1);
+    //printHeap(heap1, 1, 4);
+    // BuildMaxHeap(heap1);
    
 
-    printHeap(heap1, 1, 3);
+    // printHeap(heap1, 1, 3);
 
-   
+    // printArr(heap1);
+
+     HeapSort(heap1);
+    // cout<<"\n"<<endl;
+
+    // printHeap(heap1, 1, 3);
+
+     //cout<<"Back in main"<<endl;
+     printArr(heap1);
+
+
+
+
+
 
 
 

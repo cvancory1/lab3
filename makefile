@@ -3,7 +3,7 @@
 
 program: lab3.o
 	g++ -g -std=c++11 lab3.o -o main
-	./main
+	./main>output.txt
 	
 
 lab3.o: lab3.cpp
