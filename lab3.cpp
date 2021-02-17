@@ -42,6 +42,8 @@ struct Heap {
 //         }
 //     }
 
+ 
+
 };
 
 
@@ -260,9 +262,6 @@ int main(){
     //Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 4};
     Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
 
-    for(int i=1;i<=heap1.length; i++){
-         cout<<"heaparray "<<heap1.arr[i]<<endl;
-    }
     // cout<<"heap1="<<heap1.length<<endl;
 
     //printHeap(heap1, 1, 4);
@@ -273,7 +272,7 @@ int main(){
 
     // printArr(heap1);
 
-     HeapSort(heap1);
+     //HeapSort(heap1);
     // cout<<"\n"<<endl;
 
     // printHeap(heap1, 1, 3);
