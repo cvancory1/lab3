@@ -100,13 +100,13 @@ int * print(Heap A, int i, int depth, int * arr){
 
 
 void printHeap(Heap A, int i, int depth){
-    int * arr= new int [A.length];
-    for(int j=0;j< A.length ;j++){
-        arr[j]=-9877;
-        //cout<<arr[j];
+    // int * arr= new int [A.length];
+    // for(int j=0;j< A.length ;j++){
+    //     arr[j]=-9877;
+    //     //cout<<arr[j];
 
-    }
-    int j=0;
+    // }
+    // int j=0;
     cout<< ""<<A.arr[i-1]<<endl;
 
     print(A,i,depth--,A.arr); // calls the above function to fill the array to be printed
@@ -137,7 +137,7 @@ void printHeap(Heap A, int i, int depth){
 
         }
     }    
-    delete arr [];
+    // delete arr;
     cout<<endl;
 }
 
@@ -277,7 +277,7 @@ int main(){
    
 
     // cout<<"heap1="<<heap1.length<<endl;
-
+    printArr(heap1);
     printHeap(heap1, 1, 4);
     //  MaxHeapify(heap1,heap1.length);
    
@@ -285,7 +285,7 @@ int main(){
     //  printHeap(heap1, 1, 3);
     // cout<<"\n"<<endl;
 
-    //  printArr(heap1);
+     printArr(heap1);
 
      //HeapSort(heap1);
     // cout<<"\n"<<endl;
