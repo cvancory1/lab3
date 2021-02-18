@@ -71,18 +71,15 @@ void swap(int & num1, int& num2){
 
 void print(Heap A, int i, int depth, int * arr ){
     static int index=i;
-    int numNodes=pow(2, depth);
-
-    // if(2*i+1 > A.length && 2*i > A.length || i>= numNodes-1){
-
-    //  if(2*i+1 > A.length && 2*i > A.length ){
-            //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
-
-    if(i>=numNodes){
-    //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
-        // return arr;
-        return ; 
+    static int numNodes=pow(2, depth);
+    static int nodesPrinted=0;
     
+    cout<<"i="<<i<<" numNodes="<<numNodes<< " nodesPrinted "<< nodesPrinted<< endl;
+    
+
+
+    if(i>=A.length){
+        return ; 
     
     }
 
@@ -95,13 +92,15 @@ void print(Heap A, int i, int depth, int * arr ){
     arr[2*i -1]=A.arr[(2*i)-1];
     arr[(2*i)]=A.arr[(2*i)];
 
-    // arr[(index*2)-1]= A.arr[(2*i)-1];
-    // arr[(index*2)] =A.arr[(2*i)];
+    // arr[nodesPrinted++]= A.arr[(2*i)-1];
+    // arr[nodesPrinted++] =A.arr[(2*i)];
 
+    nodesPrinted+=2;
+   
 
     print(A,(2*i)+1,depth, arr); //print right child
     print(A,2*i,depth, arr);// print left child
-
+// index scheme 
     
 }
 
