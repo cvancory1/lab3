@@ -70,83 +70,147 @@ void swap(int & num1, int& num2){
 
 
 void print(Heap A, int i, int depth, int * arr ){
-    static int index=i;
-    static int numNodes=pow(2, depth);
-    static int nodesPrinted=0;
+    //static int index=i;
+   // static int numNodes=pow(2, depth);
+   // static int nodesPrinted=0;
     
-    cout<<"i="<<i<<" numNodes="<<numNodes<< " nodesPrinted "<< nodesPrinted<< endl;
-    
+   // cout<<"i="<<i<<" numNodes="<<numNodes<< " nodesPrinted "<< nodesPrinted<< endl;
+   // cout<<"i="<<i<<" timesEntered="<<timesEntered<< endl;
 
-
-    if(i>=A.length){
+    // if( i >= A.length){
+    if( i >= A.length  ){
+        //  cout<<"i="<<i<<" timesEntered="<<timesEntered<< endl;
+        // timesEntered=0;
         return ; 
-    
     }
 
-    // }
+
     // cout<<"     here  ";
      //cout<< A.arr[(2*i)-1]<<"  "<< A.arr[(2*i)]<<endl;// left and right child
     // arr[(index*2)-1]= A.arr[(2*i)-1];
     // arr[index*2] =A.arr[(2*i)];
+    if(2*i-1 < A.length ){
+        arr[2*i -1]=A.arr[(2*i)-1];
 
-    arr[2*i -1]=A.arr[(2*i)-1];
-    arr[(2*i)]=A.arr[(2*i)];
+    }
+
+    if(2*i < A.length ){
+        arr[(2*i)]=A.arr[(2*i)];
+        
+    }
+
+
+
+    print(A,(2*i)+1,depth, arr); //print right child
+    print(A,2*i,depth, arr);// print left child
+
 
     // arr[nodesPrinted++]= A.arr[(2*i)-1];
     // arr[nodesPrinted++] =A.arr[(2*i)];
 
-    nodesPrinted+=2;
+    //nodesPrinted+=2;
    
 
-    print(A,(2*i)+1,depth, arr); //print right child
-    print(A,2*i,depth, arr);// print left child
-// index scheme 
     
 }
 
 
 void printHeap(Heap A, int i, int depth){
     int * arr = new int [A.length];
-
+    int num=0;
     for(int j=0;j< A.length ;j++){
         arr[j]=-9877;
         //cout<<arr[j];
 
     }
     
+     // because we are printing the first element aka 2^0
+    //  cout<<" depth= "<<depth<<endl;
+    // for(int j=0; j<depth; j++){
+    //     num+= pow(2,j);
+    //      cout<<" num= "<<num<<" depth= "<<j<<endl;
 
-    print(A, i , depth--, arr); // calls the above function to fill the array to be printed
+    // }
+    //      cout<<" final num= "<<num<<endl;
+    //      num--;
 
-    int power=1;
-    int nodesPrinted=0;
-    int numNodes =2;
+    print(A, i , depth , arr); // calls the above function to fill the array to be printed
+
+    // int power=1;
+    // int nodesPrinted=0;
+    // int numNodes =2;
     //cout<<"numNodes="<<numNodes<<endl
+    cout<<"HERE ="<<endl;
 
+    for (int i=0; i< A.length ;i++){
+        cout<<  arr[i]<<endl;;
+    }
 
+    int numNodes =0;
+    int nodesPrinted=0;
+    // prints the root
     cout<< "\n"<<A.arr[i-1]<<endl;
+    int level=2;
+    
+    if(depth>1){
 
-    for(int j=1;j< A.heap_size;j++){
-        //cout<<arr[j]<<endl;
-
-        if(arr[j] >= 0){
-            cout<<arr[j]<<" ";
-            nodesPrinted++;
-
-            if(nodesPrinted % numNodes==0){
-                //cout<<"numNodes="<<numNodes<<endl;
-                cout<<endl;
-
-                // ˚cout<<"/ \\"<<endl;
-                nodesPrinted=0;
-                numNodes*=2;
-                //numNodes= pow(2,power++);
-
-
-            }
+        for(int i= 1 ;i<depth ;i++){
+            numNodes+= pow(2, i);
 
         }
-    }    
-    delete arr;
+
+        //cout<<"numNodes = "<<numNodes<<endl;
+        for(int i=0 ;i < A.length ;i++){
+
+            if(arr[i] != -9877 && nodesPrinted < numNodes){
+                cout<< arr[i]<<" ";
+                nodesPrinted++;
+            }
+            if(nodesPrinted== level){
+                 puts("");
+                 level *=2;
+                 nodesPrinted=0;
+
+            }
+        
+        
+
+        }
+
+        if(nodesPrinted != pow(2, depth-1)){
+            for(int i=0 ;i < pow(2,depth-1) -nodesPrinted; i++){
+                cout<<"* ";
+            }
+            cout<<endl;
+        }
+            
+    }
+
+    // for(int j=1;j< A.heap_size;j++){
+    //     //cout<<arr[j]<<endl;
+
+    //     if(arr[j] >= 0){
+    //         cout<<arr[j]<<" ";
+    //         nodesPrinted++;
+
+    //         if(nodesPrinted % numNodes==0){
+    //             //cout<<"numNodes="<<numNodes<<endl;
+    //             cout<<endl;
+
+    //             // ˚cout<<"/ \\"<<endl;
+    //             nodesPrinted=0;
+    //             numNodes*=2;
+    //             //numNodes= pow(2,power++);
+
+
+    //         }
+
+    //     }
+    // }  
+
+
+
+    delete [] arr;
     cout<<endl;
 }
 
@@ -285,7 +349,7 @@ int main(){
    
 
     // cout<<"heap1="<<heap1.length<<endl;
-    printArr(heap1);
+   // printArr(heap1);
     printHeap(heap1, 1, 4);
     printHeap(heap1, 2, 2);
     printHeap(heap1, 2, 3);
@@ -296,7 +360,7 @@ int main(){
     //  printHeap(heap1, 1, 3);
      cout<<"\n"<<endl;
 
-     printArr(heap1);
+     //printArr(heap1);
 
      //HeapSort(heap1);
     // cout<<"\n"<<endl;
