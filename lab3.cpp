@@ -69,7 +69,7 @@ void swap(int & num1, int& num2){
 
 
 
-int * print(Heap A, int i, int depth, int * arr ){
+void print(Heap A, int i, int depth, int * arr ){
     static int index=i;
     int numNodes=pow(2, depth);
 
@@ -80,9 +80,8 @@ int * print(Heap A, int i, int depth, int * arr ){
 
     if(i>=numNodes){
     //  cout<<"i="<<i<<"numNodes="<<numNodes<<endl;
-     
         // return arr;
-        return arr; 
+        return ; 
     
     
     }
@@ -114,7 +113,7 @@ void printHeap(Heap A, int i, int depth){
     }
     
 
-   arr= print(A, i , depth--, arr); // calls the above function to fill the array to be printed
+    print(A, i , depth--, arr); // calls the above function to fill the array to be printed
 
     int power=1;
     int nodesPrinted=0;
