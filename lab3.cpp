@@ -287,6 +287,8 @@ int main(){
 
      
     delete [] heap1.arr;
+    delete [] heap2.arr;
+
     
 }
 
