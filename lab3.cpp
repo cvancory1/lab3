@@ -96,7 +96,6 @@ void printArr(Heap A){
 
 
 void swap(int & num1, int& num2){
-   // cout<<"ENTER SWAP \n\n\n";
    // cout<<" num1 = "<<num1<< " num= "<< num2<<endl;
 
     int temp1=num1;
@@ -133,14 +132,15 @@ void print(Heap A, int i, int depth, int * arr ){
 }
 
 
+// this print does not work if the heap includes -9999
 void printHeap(Heap A, int i, int depth){
     int * arr = new int [A.length];
     int num=0;
     for(int j=0;j< A.length ;j++){
-        arr[j]=-9877;
+        arr[j]=-9999;
     }
     print(A, i , depth , arr); // calls the above function to fill the array to be printed
-    
+
     int numNodes =0;
     int nodesPrinted=0;
     // prints the root
@@ -157,7 +157,7 @@ void printHeap(Heap A, int i, int depth){
         //cout<<"numNodes = "<<numNodes<<endl;
         for(int i=0 ;i < A.length ;i++){
 
-            if(arr[i] != -9877 && nodesPrinted < numNodes){
+            if(arr[i] != -9999 && nodesPrinted < numNodes){
                 cout<< arr[i]<<" ";
                 nodesPrinted++;
             }
@@ -308,7 +308,7 @@ int main(){
     // heap sort- moves the largest elem aka i=0 to the back then maxheapifys everything to make sure it is still a valid max heap
     
     
-    // int length=10;
+     //int length=10;
     int length=250000;
 
     
@@ -342,6 +342,7 @@ int main(){
         cout<<"duplicates "<<length<<endl;
         heap4.makeArrDuplicates();
         timeHeapSort(heap4);
+
 
         length+=10000;
 
