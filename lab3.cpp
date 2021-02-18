@@ -89,11 +89,11 @@ void print(Heap A, int i, int depth, int * arr ){
     // }
     // cout<<"     here  ";
     //  cout<< A.arr[(2*i)-1]<<"  "<< A.arr[(2*i)]<<endl;// left and right child
-    // // arr[index++]=A.arr[(2*i)-1];
-    // arr[index++]=A.arr[(2*i)];
+    arr[index++]=A.arr[(2*i)-1];
+    arr[index++]=A.arr[(2*i)];
 
-    arr[2*i -1]=A.arr[(2*i)-1];
-    arr[(2*i)]=A.arr[(2*i)];
+    // arr[2*i -1]=A.arr[(2*i)-1];
+    // arr[(2*i)]=A.arr[(2*i)];
 
 
     print(A,(2*i)+1,depth, arr); //print right child
