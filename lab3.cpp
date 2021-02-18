@@ -261,7 +261,8 @@ void HeapSort(Heap A ){
 int main(){
 
     // things to send to maxheapify(A, any index where you want to compare a small baby tree aka size=3)
-    // 
+    // buildmaxheap- uses maxheapify starting at the bottom of the array to the top
+    // heap sort- moves the largest elem aka i=0 to the back then maxheapifys everything to make sure it is still a valid max heap
      int temp=1;
      int temp2=0;
 
