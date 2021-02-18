@@ -146,7 +146,7 @@ void printHeap(Heap A, int i, int depth){
 
         }
     }    
-   // delete arr;
+    delete arr;
     cout<<endl;
 }
 
