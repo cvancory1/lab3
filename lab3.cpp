@@ -106,20 +106,23 @@ void print(Heap A, int i, int depth, int * arr ){
 
 void printHeap(Heap A, int i, int depth){
     int * arr = new int [A.length];
+
     for(int j=0;j< A.length ;j++){
         arr[j]=-9877;
         //cout<<arr[j];
 
     }
-    int j=0;
-    cout<< "\n"<<A.arr[i-1]<<endl;
+    
 
     print(A, i , depth--, arr); // calls the above function to fill the array to be printed
 
     int power=1;
     int nodesPrinted=0;
     int numNodes =2;
-    //cout<<"numNodes="<<numNodes<<endl;
+    //cout<<"numNodes="<<numNodes<<endl
+
+
+    cout<< "\n"<<A.arr[i-1]<<endl;
 
     for(int j=1;j< A.heap_size;j++){
         //cout<<arr[j]<<endl;
@@ -195,7 +198,6 @@ void MaxHeapify(Heap A, int i){
        swap(A.arr[i-1], A.arr[largest-1]);
         cout<<"\n"<<endl;
         printHeap(A, i, 2);
-
 
         MaxHeapify(A, largest);
     }
