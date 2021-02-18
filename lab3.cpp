@@ -70,25 +70,12 @@ void swap(int & num1, int& num2){
 
 
 void print(Heap A, int i, int depth, int * arr ){
-    //static int index=i;
-   // static int numNodes=pow(2, depth);
-   // static int nodesPrinted=0;
-    
-   // cout<<"i="<<i<<" numNodes="<<numNodes<< " nodesPrinted "<< nodesPrinted<< endl;
-   // cout<<"i="<<i<<" timesEntered="<<timesEntered<< endl;
-
-    // if( i >= A.length){
+  
     if( i >= A.length  ){
-        //  cout<<"i="<<i<<" timesEntered="<<timesEntered<< endl;
-        // timesEntered=0;
         return ; 
     }
 
 
-    // cout<<"     here  ";
-     //cout<< A.arr[(2*i)-1]<<"  "<< A.arr[(2*i)]<<endl;// left and right child
-    // arr[(index*2)-1]= A.arr[(2*i)-1];
-    // arr[index*2] =A.arr[(2*i)];
     if(2*i-1 < A.length ){
         arr[2*i -1]=A.arr[(2*i)-1];
 
@@ -99,19 +86,9 @@ void print(Heap A, int i, int depth, int * arr ){
         
     }
 
-
-
     print(A,(2*i)+1,depth, arr); //print right child
     print(A,2*i,depth, arr);// print left child
 
-
-    // arr[nodesPrinted++]= A.arr[(2*i)-1];
-    // arr[nodesPrinted++] =A.arr[(2*i)];
-
-    //nodesPrinted+=2;
-   
-
-    
 }
 
 
@@ -120,31 +97,14 @@ void printHeap(Heap A, int i, int depth){
     int num=0;
     for(int j=0;j< A.length ;j++){
         arr[j]=-9877;
-        //cout<<arr[j];
-
     }
-    
-     // because we are printing the first element aka 2^0
-    //  cout<<" depth= "<<depth<<endl;
-    // for(int j=0; j<depth; j++){
-    //     num+= pow(2,j);
-    //      cout<<" num= "<<num<<" depth= "<<j<<endl;
-
-    // }
-    //      cout<<" final num= "<<num<<endl;
-    //      num--;
-
     print(A, i , depth , arr); // calls the above function to fill the array to be printed
 
-    // int power=1;
-    // int nodesPrinted=0;
-    // int numNodes =2;
-    //cout<<"numNodes="<<numNodes<<endl
-    cout<<"HERE ="<<endl;
 
-    for (int i=0; i< A.length ;i++){
-        cout<<  arr[i]<<endl;;
-    }
+    // for (int i=0; i< A.length ;i++){
+    //     cout<<  arr[i]<<endl;;
+    // }
+    //cout<<"HERE ="<<endl;
 
     int numNodes =0;
     int nodesPrinted=0;
@@ -172,9 +132,6 @@ void printHeap(Heap A, int i, int depth){
                  nodesPrinted=0;
 
             }
-        
-        
-
         }
 
         if(nodesPrinted != pow(2, depth-1)){
@@ -185,30 +142,6 @@ void printHeap(Heap A, int i, int depth){
         }
             
     }
-
-    // for(int j=1;j< A.heap_size;j++){
-    //     //cout<<arr[j]<<endl;
-
-    //     if(arr[j] >= 0){
-    //         cout<<arr[j]<<" ";
-    //         nodesPrinted++;
-
-    //         if(nodesPrinted % numNodes==0){
-    //             //cout<<"numNodes="<<numNodes<<endl;
-    //             cout<<endl;
-
-    //             // ˚cout<<"/ \\"<<endl;
-    //             nodesPrinted=0;
-    //             numNodes*=2;
-    //             //numNodes= pow(2,power++);
-
-
-    //         }
-
-    //     }
-    // }  
-
-
 
     delete [] arr;
     cout<<endl;
@@ -222,8 +155,6 @@ void printHeap(Heap A, int i, int depth){
  * 
 */
 
-
-
 void MaxHeapify(Heap A, int i){
    // sleep(1);
     int left= 2*i;
@@ -232,10 +163,10 @@ void MaxHeapify(Heap A, int i){
 
     cout<<"\nEnter Maxheapify\n"<<endl;
 
-    printHeap(A, i, 2);
+    //printHeap(A, i, 2);
 
     // cout<<"left= "<<left<<" right= "<<right<< " i="<<i<<endl;
-    // cout<<"arrays left="<<A.arr[left-1] <<" right="<<A.arr[right-1]<<" arr[i]="<< A.arr[i-1]<<endl;
+     cout<<"arrays left="<<A.arr[left-1] <<" right="<<A.arr[right-1]<<" arr[i]="<< A.arr[i-1]<<endl;
 
     // Find the largest among node i and its children, and swap with i
     if(left <= A.heap_size && A.arr[left-1] > A.arr[i-1]){
@@ -262,7 +193,7 @@ void MaxHeapify(Heap A, int i){
     if(largest != i ){
        swap(A.arr[i-1], A.arr[largest-1]);
         cout<<"\n"<<endl;
-        printHeap(A, i, 2);
+        //printHeap(A, i, 2);
 
         MaxHeapify(A, largest);
     }
@@ -279,6 +210,7 @@ void  BuildMaxHeap(Heap A ){
 
     A.heap_size= A.length; // the whole array will be a heap when we’re done
     for( int i= A.length/2; i>0 ; i--){
+        cout<< "i"<<i<<endl;
         MaxHeapify(A,i);
     }
 
@@ -328,73 +260,32 @@ void HeapSort(Heap A ){
 
 int main(){
 
-    // maxheapfy -> A , total length
+    // things to send to maxheapify(A, any index where you want to compare a small baby tree aka size=3)
     // 
      int temp=1;
      int temp2=0;
 
     Heap heap1= {new int[10]{ 16, 14, 10, 8, 7,9,3,2,4,1 }, 10, 10};
-    //Heap heap1= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
+    Heap heap2= {new int[8] {10, 20,25,6,12,15,4,16}, 8, 8};
 
-    // Heap heap1;
+    // Heap heap2;
     // heap1.arr=new int [10];
     // heap1.heap_size=10;
     // heap1.length=10;
 
-    // for(int i=0; i< heap1.length ;i++){
-    //     heap1.arr[i]=i;
-        
-    // }
-    
-   
+    printArr(heap2);
 
-    // cout<<"heap1="<<heap1.length<<endl;
-   // printArr(heap1);
-    printHeap(heap1, 1, 4);
-    printHeap(heap1, 2, 2);
-    printHeap(heap1, 2, 3);
-
-    //  MaxHeapify(heap1,heap1.length);
-   
-
-    //  printHeap(heap1, 1, 3);
-     cout<<"\n"<<endl;
-
-     //printArr(heap1);
-
-     //HeapSort(heap1);
-    // cout<<"\n"<<endl;
-
-    // printHeap(heap1, 1, 3);
-
-     //cout<<"Back in main"<<endl;
-     //printArr(heap1);
+   // MaxHeapify(heap2, heap2.length);
+   BuildMaxHeap(heap2);
 
 
 
 
-    // for(int i=1;i<10;i++){
-    //     //  cin>>temp;
-    //     //  heap1.arr[i]=temp;
-    
+    printArr(heap2);
+    printHeap(heap2,1,4);
 
-    //     cout<<heap1.arr[i]<<endl;
-    // }
 
-    // puts("print 1");
-    // printHeap(heap1, 2, 2);
-
-    // puts("print 2");
-    // printHeap(heap1, 2, 3);
-
-    // puts("print 3");
-    // printHeap(heap1, 1, 1);
-
-    // puts("print 4");
-    // printHeap(heap1, 1, 3);
-
-    // cout<<"bye"<<endl;
-
+     
     delete [] heap1.arr;
     
 }
