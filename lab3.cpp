@@ -395,7 +395,7 @@ int main(){
 
     // cout<<"bye"<<endl;
 
-    delete heap1.arr;
+    delete [] heap1.arr;
     
 }
 
